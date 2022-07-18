@@ -27,7 +27,8 @@
     },
     "scripts": {
         "start": "main.js",
-        "postinstall": "touch node_modules/.dependencies && husky install"
+        "postinstall": "touch node_modules/.dependencies && husky install",
+        "test": "true"
     },
     "type": "module"
 }
