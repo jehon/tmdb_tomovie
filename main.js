@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
-// Thanks to https://github.com/iFraan/tmdb.js
+
+import path from 'path';
 
 import yargs from 'yargs';
+import TMDB from './lib/tmdb.js';
 
 const options = await yargs(process.argv.slice(2))
     .options({
@@ -27,6 +29,10 @@ const options = await yargs(process.argv.slice(2))
             alias: ['f'],
             type: 'string',
             default: ''
+        },
+        'en': {
+            type: 'boolean',
+            default: false
         }
     })
     .command('$0 <file>', 'The initial movie')
@@ -39,8 +45,17 @@ const options = await yargs(process.argv.slice(2))
 // console.log(options);
 
 const f = options.file;
+process.stdout.write(`File is ${f}\n`);
 
-process.stdout.write(`Looking for ${f}...`);
+const fn = path.parse(f).name;
+process.stdout.write(`Looking for ${fn}...`);
+
+const api = TMDB(options.en ? 'en' : 'fr');
+const results = await api.search(fn);
+
+for (let i = 0; i < results.length; i++) {
+    const item = results[i];
+    process.stdout.write(`${(i + '').padEnd(3)}: ${item.title.padEnd(40)} ${item.title != item.original_title ? `(${item.original_title})` : ''} ${item.url}\n`);
+}
 
 process.stdout.write('\n');
-
