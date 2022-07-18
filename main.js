@@ -48,10 +48,11 @@ const f = options.file;
 process.stdout.write(`File is ${f}\n`);
 
 const fn = path.parse(f).name;
-process.stdout.write(`Looking for ${fn}...`);
-
 const api = TMDB(options.en ? 'en' : 'fr');
+
+process.stdout.write(`Looking for ${fn}...`);
 const results = await api.search(fn);
+process.stdout.write('done\n');
 
 for (let i = 0; i < results.length; i++) {
     const item = results[i];
