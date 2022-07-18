@@ -1,0 +1,13 @@
+{
+	"name": "devcontainer",
+	"build": {
+		"dockerfile": "../Dockerfile"
+	},
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"takumii.markdowntable",
+		"gruntfuggly.todo-tree",
+		"nobuhito.printcode",
+		"meganrogge.template-string-converter"
+	]
+}
