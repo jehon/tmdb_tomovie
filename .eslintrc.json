@@ -1,0 +1,67 @@
+{
+    "root": true,
+    "plugins": [
+        "jasmine"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:jsdoc/recommended",
+        "plugin:jasmine/recommended"
+    ],
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module",
+        "requireConfigFile": false
+    },
+    "globals": {
+        "jx": true
+    },
+    "rules": {
+        "template-curly-spacing": "off",
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "warn",
+                    "error",
+                    "info",
+                    "assert"
+                ]
+            }
+        ],
+        "no-trailing-spaces": [
+            "error"
+        ],
+        "jasmine/new-line-before-expect": 0,
+        "jasmine/no-unsafe-spy": 0,
+        "jasmine/no-global-setup": 0,
+        "jasmine/prefer-toHaveBeenCalledWith": 0,
+        "jasmine/no-suite-dupes": 0,
+        "jasmine/no-spec-dupes": 0,
+        "no-return-await": "error"
+    }
+}

@@ -26,9 +26,10 @@
         "lint-staged": "13.0.3"
     },
     "scripts": {
-        "start": "main.js",
+        "start": "node main.js",
         "postinstall": "touch node_modules/.dependencies && husky install",
-        "test": "true"
+        "lint": "eslint .",
+        "test": "jasmine --config=tests/unit/jasmine.json"
     },
     "type": "module"
 }

@@ -1,0 +1,10 @@
+{
+    "spec_dir": "tests/unit",
+    "spec_files": [
+        "*-test.mjs"
+    ],
+    "helpers": [
+        "*-helper.mjs"
+    ],
+    "stopSpecOnExpectationFailure": true
+}
