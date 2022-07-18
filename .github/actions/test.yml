@@ -1,0 +1,25 @@
+
+name: Nodejs
+
+on:
+  push:
+    branches:
+    - main
+    - ci/**
+  pull_request:
+    branches:
+    - main
+  workflow_dispatch:
+
+jobs:
+  ga-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build docker images
+      run: docker build -t local .
+
+    - name: Install
+      run: npm ci
