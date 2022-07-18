@@ -2,9 +2,13 @@
 
 
 import path from 'path';
+import *  as readline from 'readline/promises';
+import process from 'process';
 
 import yargs from 'yargs';
 import TMDB from './lib/tmdb.js';
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
 const options = await yargs(process.argv.slice(2))
     .options({
@@ -59,10 +63,13 @@ for (let i = 0; i < results.length; i++) {
     process.stdout.write(`${(i + '').padEnd(3)}: ${item.title.padEnd(40)} ${item.title != item.original_title ? `(${item.original_title})` : ''} ${item.url}\n`);
 }
 
-const id = results[0].id;
+const index = await rl.question('Selection? ');
+rl.close();
+const selected = results[index];
+process.stdout.write(`Selected #${index} ${selected.title}...`);
 
-process.stdout.write(`Looking for #${id}...`);
-const details = await api.details(id);
+process.stdout.write(`Looking for #${selected.id}...`);
+const details = await api.details(selected.id);
 process.stdout.write('done\n');
 
 console.warn(details);
