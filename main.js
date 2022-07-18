@@ -59,4 +59,12 @@ for (let i = 0; i < results.length; i++) {
     process.stdout.write(`${(i + '').padEnd(3)}: ${item.title.padEnd(40)} ${item.title != item.original_title ? `(${item.original_title})` : ''} ${item.url}\n`);
 }
 
+const id = results[0].id;
+
+process.stdout.write(`Looking for #${id}...`);
+const details = await api.details(id);
+process.stdout.write('done\n');
+
+console.warn(details);
+
 process.stdout.write('\n');
