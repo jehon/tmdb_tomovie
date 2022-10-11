@@ -8,7 +8,7 @@ set -o errexit
 TARGET="${1:-$JH_SWD/tmp/test.mkv}"
 mkdir -p "$( dirname "$TARGET" )"
 
-echo "Generating $TARGET"
+echo "* Generating $TARGET"
 
 # https://superuser.com/a/1003429/287025
 ffmpeg \

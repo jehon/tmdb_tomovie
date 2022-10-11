@@ -33,7 +33,7 @@ export const fromCWD = (...args) => path.join(process.cwd(), ...args);
 export const rootPath = (...args) => path.join((path.dirname(__dirname(import.meta))), ...args);
 
 // Test
-export const dataPath = (...args) => rootPath('test', 'data', ...args);
+export const dataPath = (...args) => rootPath('tests', 'data', ...args);
 export const tempPath = (...args) => rootPath('tmp', 'unit', ...args);
 
-export const createMKV = (file) => run(rootPath('test/create.sh'), [file]);
+export const createMKV = async (file) => run(rootPath('tests/create.sh'), [file]);
