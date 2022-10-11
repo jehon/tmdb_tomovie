@@ -9,6 +9,12 @@ describe(t(import.meta), () => {
             const list = await api.search('Ghost');
             expect(list.length).toBeGreaterThan(5);
         });
+
+        it('should get details', async () => {
+            const details = await api.details(251);
+            expect(details.title).toBe('Ghost');
+            expect(details.tagline).toBe('On y croit tous.');
+        });
     });
 
     describe('english', () => {
@@ -16,6 +22,12 @@ describe(t(import.meta), () => {
         it('should find movie', async () => {
             const list = await api.search('Ghost');
             expect(list.length).toBeGreaterThan(5);
+        });
+
+        it('should get details', async () => {
+            const details = await api.details(251);
+            expect(details.title).toBe('Ghost');
+            expect(details.tagline).toBe('Before Sam was murdered, he told Molly he\'d love and protect her forever.');
         });
     });
 });
