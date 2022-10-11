@@ -1,5 +1,6 @@
 
 import path, { dirname } from 'path';
+import { run } from '../lib/utils.js';
 
 /**
  * @param {object|string} meta from import.meta
@@ -34,3 +35,5 @@ export const rootPath = (...args) => path.join((path.dirname(__dirname(import.me
 // Test
 export const dataPath = (...args) => rootPath('test', 'data', ...args);
 export const tempPath = (...args) => rootPath('tmp', 'unit', ...args);
+
+export const createMKV = (file) => run(rootPath('test/create.sh'), [file]);
