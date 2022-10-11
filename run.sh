@@ -7,11 +7,11 @@ set -o errexit
 
 jh-npm-update-if-necessary "$JH_SWD"
 
-JH_TMDB_KEY="$( jh-config get "JH_TMDB_KEY" )"
-export JH_TMDB_KEY
+# JH_TMDB_KEY="$( jh-config get "JH_TMDB_KEY" )"
+# export JH_TMDB_KEY
 
-if [ -z "$JH_TMDB_KEY" ]; then
-    jh_fatal "No JH_TMDB_KEY found"
-fi
+# if [ -z "$JH_TMDB_KEY" ]; then
+#     jh_fatal "No JH_TMDB_KEY found"
+# fi
 
 "$JH_SWD/main.js" "$@"
