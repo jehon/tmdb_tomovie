@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-
 import path from 'path';
 import *  as readline from 'readline/promises';
 import process from 'process';
