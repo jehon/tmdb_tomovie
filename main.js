@@ -6,7 +6,7 @@ import *  as readline from 'readline/promises';
 import process from 'process';
 
 import yargs from 'yargs';
-import TMDB from './lib/tmdb.js';
+import TMDBQuery from './lib/tmdb.js';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -52,7 +52,7 @@ const f = options.file;
 process.stdout.write(`File is ${f}\n`);
 
 const fn = path.parse(f).name;
-const api = TMDB(options.en ? 'en' : 'fr');
+const api = new TMDBQuery(options.en ? TMDBQuery.en : TMDBQuery.fr);
 
 process.stdout.write(`Looking for ${fn}...`);
 const results = await api.search(fn);
