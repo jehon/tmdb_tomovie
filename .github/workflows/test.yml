@@ -37,7 +37,7 @@ jobs:
     - name: npm test
       uses: jehon/actions-devcontainer@main
       with:
-        run: npm test
+        run: JH_TMDB_KEY=${{ secrets.JH_TMDB_KEY }} npm test
 
     - name: npm lint
       uses: jehon/actions-devcontainer@main
