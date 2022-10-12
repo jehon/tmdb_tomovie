@@ -18,14 +18,34 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Build docker images
-      run: docker build -t local .
+    - name: dc dump
+      uses: jehon/actions-devcontainer@main
+      with:
+        action: dump
 
-    - name: Install
-      run: npm ci
+    - id: start
+      name: dc start
+      uses: jehon/actions-devcontainer@main
+      with:
+        action: start
 
-    - name: Run test
-      run: npm test
+    - name: npm ci
+      uses: jehon/actions-devcontainer@main
+      with:
+        run: npm ci
 
-    - name: Run lint
-      run: npm run lint
+    - name: npm test
+      uses: jehon/actions-devcontainer@main
+      with:
+        run: npm test
+
+    - name: npm lint
+      uses: jehon/actions-devcontainer@main
+      with:
+        run: npm run lint
+
+    - name: dc stop
+      uses: jehon/actions-devcontainer@main
+      if: always()
+      with:
+        action: stop
