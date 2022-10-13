@@ -1,5 +1,6 @@
 
 import path, { dirname } from 'path';
+import fs from 'fs';
 import { run } from '../lib/utils.js';
 
 /**
@@ -37,3 +38,5 @@ export const dataPath = (...args) => rootPath('tests', 'data', ...args);
 export const tempPath = (...args) => rootPath('tmp', 'unit', ...args);
 
 export const createMKV = async (file) => run(rootPath('tests/create.sh'), [file]);
+
+fs.mkdirSync(tempPath(), { recursive: true });
