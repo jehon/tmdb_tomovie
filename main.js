@@ -5,7 +5,7 @@ import process from 'process';
 
 import yargs from 'yargs';
 import TMDBQuery from './lib/tmdb.js';
-import { parseFilename } from './lib/utils.js';
+import FileInfos from './lib/file-infos.js';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -51,7 +51,7 @@ const f = options.file;
 process.stdout.write(`File is ${f}\n`);
 
 const api = new TMDBQuery(options.en ? TMDBQuery.en : TMDBQuery.fr);
-const movie = parseFilename(f);
+const movie = FileInfos.fromPath(f);
 
 process.stdout.write(`Looking for ${movie.title}...`);
 const results = await api.search(movie.title, movie.year);
