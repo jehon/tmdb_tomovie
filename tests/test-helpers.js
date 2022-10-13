@@ -38,5 +38,8 @@ export const dataPath = (...args) => rootPath('tests', 'data', ...args);
 export const tempPath = (...args) => rootPath('tmp', 'unit', ...args);
 
 export const createMKV = async (file) => run(rootPath('tests/create.sh'), [file]);
+export const loadJSONData = (file) => JSON.parse(fs.readFileSync(dataPath(file) + '.json', 'utf-8'));
+export const getFileSize = (file) => fs.statSync(file).size;
+
 
 fs.mkdirSync(tempPath(), { recursive: true });
