@@ -6,7 +6,7 @@ describe(t(import.meta), () => {
     describe('français', () => {
         const api = new TMDBQuery(TMDBQuery.fr);
         it('should find movie', async () => {
-            const list = await api.search('Ghost');
+            const list = await api.search('Ghost', 1990);
             expect(list.length).toBeGreaterThan(5);
         });
 
@@ -20,7 +20,7 @@ describe(t(import.meta), () => {
     describe('english', () => {
         const api = new TMDBQuery(TMDBQuery.en);
         it('should find movie', async () => {
-            const list = await api.search('Ghost');
+            const list = await api.search('Ghost', 1990);
             expect(list.length).toBeGreaterThan(5);
         });
 
