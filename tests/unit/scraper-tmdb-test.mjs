@@ -1,10 +1,10 @@
 
-import TMDBQuery from '../../lib/tmdb.js';
+import TMDBScraper from '../../lib/scraper-tmdb.js';
 import { t } from '../test-helpers.js';
 
 describe(t(import.meta), () => {
     describe('français', () => {
-        const api = new TMDBQuery(TMDBQuery.fr);
+        const api = new TMDBScraper(TMDBScraper.fr);
         it('should find movie', async () => {
             const list = await api.search('Ghost', 1990);
             expect(list.length).toBeGreaterThan(5);
@@ -18,7 +18,7 @@ describe(t(import.meta), () => {
     });
 
     describe('english', () => {
-        const api = new TMDBQuery(TMDBQuery.en);
+        const api = new TMDBScraper(TMDBScraper.en);
         it('should find movie', async () => {
             const list = await api.search('Ghost', 1990);
             expect(list.length).toBeGreaterThan(5);
