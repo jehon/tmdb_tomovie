@@ -20,11 +20,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: dc dump
-      uses: jehon/actions-devcontainer@main
-      with:
-        action: dump
-
     - id: start
       name: dc start
       uses: jehon/actions-devcontainer@main
