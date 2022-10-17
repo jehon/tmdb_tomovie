@@ -5,6 +5,7 @@ import { t } from '../test-helpers.js';
 describe(t(import.meta), () => {
     describe('français', () => {
         const scraper = new ScraperTMDB(ScraperTMDB.fr);
+
         it('should find movie', async () => {
             const list = await scraper.search('Ghost', 1990);
             expect(list.length).toBeGreaterThan(5);
@@ -19,6 +20,7 @@ describe(t(import.meta), () => {
 
     describe('english', () => {
         const scraper = new ScraperTMDB(ScraperTMDB.en);
+
         it('should find movie', async () => {
             const list = await scraper.search('Ghost', 1990);
             expect(list.length).toBeGreaterThan(5);

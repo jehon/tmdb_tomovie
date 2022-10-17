@@ -1,6 +1,6 @@
 
 import InfosMetadata from '../../lib/infos-metadata.js';
-import { setMKV } from '../../lib/format-mkv.js';
+import FormatMKV from '../../lib/format-mkv.js';
 import { createMKV, loadJSONData, t, tempPath } from '../test-helpers.js';
 
 describe(t(import.meta), () => {
@@ -8,10 +8,19 @@ describe(t(import.meta), () => {
     const file = tempPath('create.mkv');
     const infos = InfosMetadata.fromTMDB(json);
 
+    it('should say where to save the file', async () => {
+        await createMKV(file);
+        const formated = new FormatMKV(file);
+
+        expect(formated.getCoverFilename()).toMatch(/.*\.jpg/);
+        expect(formated.getBackdropFilename()).toMatch(/.*\.jpg/);
+    });
+
     it('should write informations', async () => {
         await createMKV(file);
-        setMKV(file, infos);
+        const formatted = new FormatMKV(file);
 
+        formatted.inject(infos);
         expect(true).toBeTrue();
     });
 });
