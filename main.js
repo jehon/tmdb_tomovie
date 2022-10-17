@@ -69,9 +69,9 @@ const selected = results[index];
 process.stdout.write(`Selected #${index} ${selected.title}...`);
 
 process.stdout.write(`Looking for #${selected.id}...`);
-const details = await api.details(selected.id);
+const infosMetadata = await api.getInfosMetadata(selected.id);
 process.stdout.write('done\n');
 
-console.warn(details);
+console.warn(infosMetadata);
 
 process.stdout.write('\n');

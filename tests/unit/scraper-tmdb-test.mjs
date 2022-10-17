@@ -11,9 +11,9 @@ describe(t(import.meta), () => {
         });
 
         it('should get details', async () => {
-            const details = await api.details(251);
-            expect(details.title).toBe('Ghost');
-            expect(details.tagline).toBe('On y croit tous.');
+            const infosMetadata = await api.getInfosMetadata(251);
+            expect(infosMetadata.title).toBe('Ghost');
+            expect(infosMetadata.tagline).toBe('On y croit tous.');
         });
     });
 
@@ -25,9 +25,9 @@ describe(t(import.meta), () => {
         });
 
         it('should get details', async () => {
-            const details = await api.details(251);
-            expect(details.title).toBe('Ghost');
-            expect(details.tagline).toBe('Before Sam was murdered, he told Molly he\'d love and protect her forever.');
+            const infosMetadata = await api.getInfosMetadata(251);
+            expect(infosMetadata.title).toBe('Ghost');
+            expect(infosMetadata.tagline).toBe('Before Sam was murdered, he told Molly he\'d love and protect her forever.');
         });
     });
 });
