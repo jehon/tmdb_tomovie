@@ -4,8 +4,9 @@ import *  as readline from 'readline/promises';
 import process from 'process';
 
 import yargs from 'yargs';
-import TMDBScraper from './lib/scraper-tmdb.js';
-import FileInfos from './lib/file-infos.js';
+
+import ScraperTMDB from './lib/scraper-tmdb.js';
+import InfosFile from './lib/infos-file.js';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -50,8 +51,8 @@ const options = await yargs(process.argv.slice(2))
 const f = options.file;
 process.stdout.write(`File is ${f}\n`);
 
-const api = new TMDBScraper(options.en ? TMDBScraper.en : TMDBScraper.fr);
-const movie = FileInfos.fromPath(f);
+const api = new ScraperTMDB(options.en ? ScraperTMDB.en : ScraperTMDB.fr);
+const movie = InfosFile.fromPath(f);
 
 process.stdout.write(`Looking for ${movie.title}...`);
 const results = await api.search(movie.title, movie.year);

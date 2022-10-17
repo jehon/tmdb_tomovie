@@ -1,11 +1,11 @@
 
 import { t } from '../test-helpers.js';
-import FileInfos from '../../lib/file-infos.js';
+import InfosFile from '../../lib/infos-file.js';
 
 describe(t(import.meta), () => {
     describe('parseFilename', () => {
         const tfn = (fn, title, year, cb = () => { }) => it(fn, () => {
-            const parsed = FileInfos.fromPath(fn);
+            const parsed = InfosFile.fromPath(fn);
             expect(parsed.path)
                 .withContext(`path of ${fn}`)
                 .toBe(fn);
