@@ -7,6 +7,7 @@ import yargs from 'yargs';
 
 import ScraperTMDB from './lib/scraper-tmdb.js';
 import InfosFile from './lib/infos-file.js';
+import FormatMKV from './lib/format-mkv.js';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -72,6 +73,16 @@ process.stdout.write(`Looking for #${selected.id}...`);
 const infosMetadata = await scraper.getInfosMetadata(selected.id);
 process.stdout.write('done\n');
 
-console.warn(infosMetadata);
+process.stdout.write('\n');
+
+process.stdout.write('Downloading images');
+const formatted = new FormatMKV(infosFile);
+scraper.downloadCover(formatted);
+scraper.downloadBackdrop(formatted);
+process.stdout.write('done\n');
 
 process.stdout.write('\n');
+
+process.stdout.write('Injecting metadata');
+formatted.inject(infosMetadata);
+process.stdout.write('done\n');
