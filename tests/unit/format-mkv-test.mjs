@@ -12,8 +12,8 @@ describe(t(import.meta), () => {
         await createMKV(file);
         const formated = new FormatMKV(file);
 
-        expect(formated.getCoverFilename()).toMatch(/.*\.jpg/);
-        expect(formated.getBackdropFilename()).toMatch(/.*\.jpg/);
+        expect(formated.getCoverFilepath()).toMatch(/.*\.jpg/);
+        expect(formated.getBackdropFilepath()).toMatch(/.*\.jpg/);
     });
 
     it('should write informations', async () => {

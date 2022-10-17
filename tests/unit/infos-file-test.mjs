@@ -31,5 +31,7 @@ describe(t(import.meta), () => {
             expect(parsed.extension).toBe('.mkv');
             expect(parsed.basepath).toBe('/some/where/Ghost (1990)');
         });
+
+        tfn('/workspaces/tmdb-to-movie/tmp/unit/scraper-tmdb-test.mjs.mkv', 'scraper-tmdb-test.mjs', '');
     });
 });
