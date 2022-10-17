@@ -51,11 +51,11 @@ const options = await yargs(process.argv.slice(2))
 const f = options.file;
 process.stdout.write(`File is ${f}\n`);
 
-const api = new ScraperTMDB(options.en ? ScraperTMDB.en : ScraperTMDB.fr);
-const movie = InfosFile.fromPath(f);
+const scraper = new ScraperTMDB(options.en ? ScraperTMDB.en : ScraperTMDB.fr);
+const infosFile = InfosFile.fromPath(f);
 
-process.stdout.write(`Looking for ${movie.title}...`);
-const results = await api.search(movie.title, movie.year);
+process.stdout.write(`Looking for ${infosFile.title}...`);
+const results = await scraper.search(infosFile.title, infosFile.year);
 process.stdout.write('done\n');
 
 for (let i = 0; i < results.length; i++) {
@@ -69,7 +69,7 @@ const selected = results[index];
 process.stdout.write(`Selected #${index} ${selected.title}...`);
 
 process.stdout.write(`Looking for #${selected.id}...`);
-const infosMetadata = await api.getInfosMetadata(selected.id);
+const infosMetadata = await scraper.getInfosMetadata(selected.id);
 process.stdout.write('done\n');
 
 console.warn(infosMetadata);
