@@ -23,7 +23,7 @@
         "eslint-plugin-jsdoc": "39.6.4",
         "husky": "8.0.2",
         "jasmine": "4.5.0",
-        "lint-staged": "13.0.3"
+        "lint-staged": "13.0.4"
     },
     "scripts": {
         "start": "node main.js",
