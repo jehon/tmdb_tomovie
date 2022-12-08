@@ -6,7 +6,7 @@
     "license": "MIT",
     "repository": "https://github.com/jehon/tmdb-to-movie",
     "dependencies": {
-        "chalk": "5.1.2",
+        "chalk": "5.2.0",
         "command-exists": "1.2.9",
         "debug": "4.3.4",
         "yargs": "17.6.2"
