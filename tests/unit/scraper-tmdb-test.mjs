@@ -32,7 +32,7 @@ describe(t(import.meta), () => {
 
             await scraper.downloadBackdrop(formatted);
             expect(getFileSize(fn + '-backdrop.jpg')).toBeGreaterThan(100);
-        });
+        }, 10 * 1000);
     });
 
     describe('english', () => {
