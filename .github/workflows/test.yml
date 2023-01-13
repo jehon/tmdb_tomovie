@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - id: Configure
-      run: mkdir -p /etc/jehon/restricted && echo "$JH_TMDB_KEY" > /etc/jehon/restricted/tmdb.key
+      run: sudo mkdir --mode=0777 -p /etc/jehon/restricted && echo "$JH_TMDB_KEY" > /etc/jehon/restricted/tmdb.key
 
     - id: start
       name: dc start
