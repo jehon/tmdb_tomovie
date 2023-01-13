@@ -4,7 +4,7 @@
 		"dockerfile": "Dockerfile"
 	},
 	"mounts": [
-		"source=/etc/jehon/restricted/tmdb-to-movie.key,target=/etc/jehon/restricted/tmdb-to-movie.key,type=bind"
+		"source=/etc/jehon/restricted/tmdb.key,target=/etc/jehon/restricted/tmdb.key,type=bind"
 	],
 	"extensions": [
 		"dbaeumer.vscode-eslint",
