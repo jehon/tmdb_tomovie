@@ -2,10 +2,9 @@
 
 set -o errexit
 
-# shellcheck source=/usr/bin/jh-lib
-. jh-lib
+SWD="$(realpath --physical "$(dirname "${BASH_SOURCE[0]}")")"
 
-jh-npm-update-if-necessary "$JH_SWD"
+jh-npm-update-if-necessary "$SWD"
 
 # JH_TMDB_KEY="$( jh-config get "JH_TMDB_KEY" )"
 # export JH_TMDB_KEY
@@ -14,4 +13,4 @@ jh-npm-update-if-necessary "$JH_SWD"
 #     jh_fatal "No JH_TMDB_KEY found"
 # fi
 
-"$JH_SWD/main.js" "$@"
+"$SWD/main.js" "$@"

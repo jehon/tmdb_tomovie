@@ -2,10 +2,9 @@
 
 set -o errexit
 
-# shellcheck source=/usr/bin/jh-lib
-. jh-lib
+SWD="$(realpath --physical "$(dirname "${BASH_SOURCE[0]}")")"
 
-TARGET="${1:-$JH_SWD/tmp/test.mkv}"
+TARGET="${1:-$SWD/tmp/test.mkv}"
 mkdir -p "$( dirname "$TARGET" )"
 
 echo "* Generating $TARGET"
@@ -15,6 +14,6 @@ ffmpeg \
     -hide_banner -loglevel error \
     -y -f lavfi \
     -i anullsrc -loop 1 \
-    -f image2 -i "$JH_SWD"/create.jpg \
+    -f image2 -i "$SWD"/create.jpg \
     -r 30 -t 10 -pix_fmt yuvj420p -map 0:a -map 1:v \
     "$TARGET"
