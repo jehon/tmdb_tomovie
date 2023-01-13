@@ -1,6 +1,4 @@
 
-name: Nodejs
-
 on:
   push:
     branches:
@@ -20,6 +18,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - id: Configure
+      run: mkdir -p /etc/jehon/restricted && echo "$JH_TMDB_KEY" > /etc/jehon/restricted/tmdb.key
+
     - id: start
       name: dc start
       uses: jehon/actions-devcontainer@main
