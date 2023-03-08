@@ -21,29 +21,17 @@ jobs:
     - id: Configure
       run: sudo mkdir --mode=0777 -p /etc/jehon/restricted && echo "${{ secrets.JH_TMDB_KEY }}" > /etc/jehon/restricted/tmdb.key
 
-    - id: start
-      name: dc start
-      uses: jehon/actions-devcontainer@main
-      with:
-        action: start
-
     - name: npm ci
-      uses: jehon/actions-devcontainer@main
+      uses: devcontainers/ci@v0.3
       with:
-        run: npm ci
+        runCmd: npm ci
 
     - name: npm test
-      uses: jehon/actions-devcontainer@main
+      uses: devcontainers/ci@v0.3
       with:
-        run: npm test
+        runCmd: npm test
 
     - name: npm lint
-      uses: jehon/actions-devcontainer@main
+      uses: devcontainers/ci@v0.3
       with:
-        run: npm run lint
-
-    - name: dc stop
-      uses: jehon/actions-devcontainer@main
-      if: always()
-      with:
-        action: stop
+        runCmd: npm run lint
