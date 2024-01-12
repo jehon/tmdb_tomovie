@@ -3,9 +3,6 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-	"mounts": [
-		"source=/etc/jehon/restricted/tmdb.key,target=/etc/jehon/restricted/tmdb.key,type=bind"
-	],
 	"extensions": [
 		"dbaeumer.vscode-eslint",
 		"takumii.markdowntable",

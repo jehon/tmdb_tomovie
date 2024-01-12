@@ -16,22 +16,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-    
-    - id: Configure
+    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+    - uses: actions/setup-node@v4
+
+    - name: Configure key
       run: mkdir --mode=0777 -p $HOME/restricted && echo "${{ secrets.JH_TMDB_KEY }}" > $HOME/restricted/tmdb.key
 
-    - name: npm ci
-      uses: devcontainers/ci@v0.3
-      with:
-        runCmd: npm ci
+    - run: npm ci
 
-    - name: npm test
-      uses: devcontainers/ci@v0.3
-      with:
-        runCmd: npm test
+    - run: npm test
 
-    - name: npm lint
-      uses: devcontainers/ci@v0.3
-      with:
-        runCmd: npm run lint
+    - run: npm lint
