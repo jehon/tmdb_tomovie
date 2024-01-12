@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
     
     - id: Configure
-      run: sudo mkdir --mode=0777 -p /etc/jehon/restricted && echo "${{ secrets.JH_TMDB_KEY }}" > /etc/jehon/restricted/tmdb.key
+      run: mkdir --mode=0777 -p $HOME/restricted && echo "${{ secrets.JH_TMDB_KEY }}" > $HOME/restricted/tmdb.key
 
     - name: npm ci
       uses: devcontainers/ci@v0.3
