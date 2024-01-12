@@ -22,6 +22,9 @@ jobs:
       with:
         node-version: latest
 
+    # - name: setup
+    #   run: sudo .devcontainer/setup.sh
+
     - name: Configure key
       run: mkdir --mode=0777 -p $HOME/restricted && echo "${{ secrets.JH_TMDB_KEY }}" > $HOME/restricted/tmdb.key
 
