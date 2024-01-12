@@ -4,4 +4,4 @@ export DEBIAN_FRONTEND=noninteractive
 
 apt update
 
-# apt install -y mkvtoolnix ffmpeg
+apt install -y ffmpeg
