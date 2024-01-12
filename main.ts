@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import *  as readline from 'readline/promises';
-import process from 'process';
+import *  as readline from 'node:readline/promises';
+import process from 'node:process';
 
 import yargs from 'yargs';
 
@@ -13,17 +13,6 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 
 const options = await yargs(process.argv.slice(2))
     .options({
-        'dryRun': {
-            alias: ['dry-run', 'n'],
-            type: 'boolean',
-            default: false,
-            coerce: (val) => {
-                if (val) {
-                    console.info('Using dry run mode');
-                }
-                return val;
-            }
-        },
         'verbose': {
             alias: ['v'],
             type: 'boolean',
@@ -82,7 +71,3 @@ scraper.downloadBackdrop(formatted);
 process.stdout.write('done\n');
 
 process.stdout.write('\n');
-
-process.stdout.write('Injecting metadata');
-formatted.inject(infosMetadata);
-process.stdout.write('done\n');

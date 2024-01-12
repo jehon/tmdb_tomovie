@@ -4,4 +4,4 @@ SWD="$(realpath --physical "$(dirname "${BASH_SOURCE[0]}")")"
 
 ROOT="$( dirname "$SWD" )"
 
-node $ROOT/main.js "$@"
+node --import tsx/esm $ROOT/main.ts "$@"
